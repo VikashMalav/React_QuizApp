@@ -1,29 +1,58 @@
-import './App.css';
+import { computeHeadingLevel } from '@testing-library/react'
+import react, { useEffect, useState } from 'react'
+import { quiz } from './QuizQue'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
-  );
-}
+  let [queArray, setQueArray] = useState([])
+  let[ansChecker,setAnsChecker]=useState([])
+  useEffect(() => { 
 
-export default App;
+    setQueArray(quiz)
+
+  }, [])
+  console.log(queArray)
+
+  function handleSubmit(e,choice){
+    console.log(e)
+    setAnsChecker(choice.filter((each)=>{
+      return each===e.target.value
+    }))
+console.log(ansChecker)
+
+
+  }
+
+  function handleChange(e){
+console.log(e.target.value)
+
+  }
+  return (
+
+    <div>
+      {
+        quiz.map((que) => {
+          return (
+            <div key={que.id}>
+              <h2> {que.question}</h2>
+              <div>
+                {
+                  que.options.map((choice, id) => {
+                    return (
+                      <div key={id}>
+                        <input type='radio' value={choice} name='option' onChange={handleChange}  ></input>
+                        <span>{choice}</span>
+
+                      </div>
+                    )
+                  })
+                }
+
+              </div>
+              <button  onClick={(e)=>handleSubmit(e,que.options)} >check answer</button>
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+export default App
