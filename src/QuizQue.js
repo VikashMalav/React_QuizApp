@@ -8,7 +8,7 @@ export const quiz = [
         'Abstract class',
         'Singleton class',
         'Friend class'],
-      answer: 0
+      answer: 'Abstract class'
     },
     {
       id: 2
@@ -20,7 +20,7 @@ export const quiz = [
         'Default constructor',
         'Parameterized constructor'],
 
-      answer: 0
+      answer: 'Default constructor'
     },
     {
       id: 3
@@ -31,7 +31,7 @@ export const quiz = [
         'Derived class pointer cannot point to base class.',
         'Pointer to derived class cannot be created.',
         'Pointer to base class cannot be created.'],
-      answer: 1
+      answer:  'Pointer to derived class cannot be created.'
     },
     {
 
@@ -43,7 +43,7 @@ export const quiz = [
         'Friend function',
         'Const function',
         'Virtual function'],
-      answer: 3
+      answer: 'Const function'
     },
     {
       id: 5
@@ -54,6 +54,6 @@ export const quiz = [
         'Dynamic Typing',
         'Dynamic binding',
         'Dynamic loading'],
-      answer: 2
+      answer: 'Dynamic binding'
 
     }]
